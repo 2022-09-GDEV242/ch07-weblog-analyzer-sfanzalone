@@ -42,6 +42,8 @@ public class LogAnalyzer
      */
     public int numberOfAccesses()
     {
+        int total = 0;
+        
         for(int hour = 0; hour < hourCounts.length; hour++)
         {
             System.out.println(hour + ": " + hourCounts[hour]);
@@ -50,7 +52,35 @@ public class LogAnalyzer
         return total;
     }
 
+    /**
+     * Gives the busiest hour in the log file.
+     */
+    public void busiestHour()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour >= 6)
+            {
+                System.out.println("This was the busiest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
     
+    /**
+     * Gives the quietest hour in the log file.
+     */
+    public void quietestHour()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour < 6)
+            {
+                System.out.println("This was the quietest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
     
     /**
      * Print the hourly counts.
