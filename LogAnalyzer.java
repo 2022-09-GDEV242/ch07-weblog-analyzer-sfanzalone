@@ -53,6 +53,14 @@ public class LogAnalyzer
     }
 
     /**
+     * Give the total amount of times the log file was accessed.
+     */
+    public int totalAccessesPerMonth()
+    {
+        return total;
+    }
+    
+    /**
      * Gives the busiest hour in the log file.
      */
     public void busiestHour()
@@ -68,6 +76,21 @@ public class LogAnalyzer
     }
     
     /**
+     * Gives the busiest month in the log file.
+     */
+    public void busiestMonth()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour >= 6)
+            {
+                System.out.println("This was the busiest month: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
+    
+    /**
      * Gives the quietest hour in the log file.
      */
     public void quietestHour()
@@ -77,6 +100,21 @@ public class LogAnalyzer
             if(hour < 4)
             {
                 System.out.println("This was the quietest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
+    
+    /**
+     * Gives the quietest month in the log file.
+     */
+    public void quietestMonth()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour >= 6)
+            {
+                System.out.println("This was the quietest month: ");
                 System.out.println(hour + ": " + hourCounts[hour]);
             }
         }
