@@ -10,6 +10,8 @@ public class LogAnalyzer
     private int[] hourCounts;
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
+    //The number of times the log file is accessed.
+    private int total;
 
     /**
      * Create an object to analyze hourly web accesses.
@@ -35,6 +37,21 @@ public class LogAnalyzer
         }
     }
 
+    /**
+     * Give the amount of times the log file was accessed.
+     */
+    public int numberOfAccesses()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            System.out.println(hour + ": " + hourCounts[hour]);
+        }
+	
+        return total;
+    }
+
+    
+    
     /**
      * Print the hourly counts.
      * These should have been set with a prior
