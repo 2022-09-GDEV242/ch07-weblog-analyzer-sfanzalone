@@ -74,9 +74,36 @@ public class LogAnalyzer
     {
         for(int hour = 0; hour < hourCounts.length; hour++)
         {
-            if(hour < 6)
+            if(hour < 4)
             {
                 System.out.println("This was the quietest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
+    
+    /**
+     * Gives the busiest hour in the log file from start to finish.
+     */
+    public void busiestTwoHour()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour <= 23)
+            {
+                System.out.println("This was the busiest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+            
+            else
+            {
+                System.out.println("This wasn't the busiest hour.");
+                System.out.println("This hour will be exempt.");
+            }
+            
+            if(hour >= 6)
+            {
+                System.out.println("This was the busiest hour: ");
                 System.out.println(hour + ": " + hourCounts[hour]);
             }
         }
