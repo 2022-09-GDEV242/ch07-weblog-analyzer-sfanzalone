@@ -12,6 +12,8 @@ public class LogAnalyzer
     private LogfileReader reader;
     //The number of times the log file is accessed.
     private int total;
+    //The average amount of times the log file was accessed.
+    private int average;
 
     /**
      * Create an object to analyze hourly web accesses.
@@ -48,18 +50,10 @@ public class LogAnalyzer
         {
             System.out.println(hour + ": " + hourCounts[hour]);
         }
-	
+    
         return total;
     }
 
-    /**
-     * Give the total amount of times the log file was accessed.
-     */
-    public int totalAccessesPerMonth()
-    {
-        return total;
-    }
-    
     /**
      * Gives the busiest hour in the log file.
      */
@@ -70,6 +64,21 @@ public class LogAnalyzer
             if(hour >= 6)
             {
                 System.out.println("This was the busiest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
+    
+    /**
+     * Gives the busiest day in the log file.
+     */
+    public void busiestDay()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour >= 6)
+            {
+                System.out.println("This was the busiest day: ");
                 System.out.println(hour + ": " + hourCounts[hour]);
             }
         }
@@ -100,6 +109,21 @@ public class LogAnalyzer
             if(hour < 4)
             {
                 System.out.println("This was the quietest hour: ");
+                System.out.println(hour + ": " + hourCounts[hour]);
+            }
+        }
+    }
+    
+    /**
+     * Gives the quietest day in the log file.
+     */
+    public void quietestDay()
+    {
+        for(int hour = 0; hour < hourCounts.length; hour++)
+        {
+            if(hour >= 6)
+            {
+                System.out.println("This was the quietest day: ");
                 System.out.println(hour + ": " + hourCounts[hour]);
             }
         }
@@ -145,6 +169,34 @@ public class LogAnalyzer
                 System.out.println(hour + ": " + hourCounts[hour]);
             }
         }
+    }
+    
+    /**
+     * Returns the total amount of times the log file was accessed.
+     */
+    public int totalAccessesPerMonth()
+    {
+        return total;
+    }
+    
+    /**
+     * Give the average amount of times the log file was accessed.
+     */
+    public int averageAccessesPerMonth()
+    {
+        average = total / 31;
+        
+        if(average != total / 31)
+        {
+            average = total / 30;
+        }
+        
+        else
+        {
+            average = total / 28;
+        }
+        
+        return average;
     }
     
     /**
