@@ -10,6 +10,10 @@ public class LogAnalyzer
     private int[] hourCounts;
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
+    //The amount of times the log was accessed in a day.
+    private int day;
+    //The amount of times the log was accessed in a month.
+    private int month;
     //The number of times the log file is accessed.
     private int total;
     //The average amount of times the log file was accessed.
@@ -89,6 +93,13 @@ public class LogAnalyzer
      */
     public void busiestMonth()
     {
+        day++;
+        
+        if(day > 31)
+        {
+            day = month;
+        }
+        
         for(int hour = 0; hour < hourCounts.length; hour++)
         {
             if(hour >= 6)
@@ -134,6 +145,14 @@ public class LogAnalyzer
      */
     public void quietestMonth()
     {
+        day++;
+        
+        if(day > 31)
+        {
+            day = month;
+        }
+        
+        
         for(int hour = 0; hour < hourCounts.length; hour++)
         {
             if(hour >= 6)
